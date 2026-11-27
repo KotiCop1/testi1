@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой первый сайт</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Black+Ops+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- ========================================== -->
+<!-- БУРГЕР-МЕНЮ (для мобильных)                -->
+<!-- ========================================== -->
+<input type="checkbox" id="burger-toggle" class="burger-toggle">
+<label for="burger-toggle" class="burger-label">☰ Меню</label>
+
+    <h1 class="hoi-title">Hearts Of Iron 4</h1>
+
+    <header>
+        <nav class="main_nav">
+            <h2 style="text-align: center">
+                <a href="index.html" class="fast-travel">Главная</a>
+                <a href="My_Screenshots.html" class="fast-travel">Мои скрины</a>
+                <a href="my_beauti_games.html" class="fast-travel">Мои Любимые Игры</a>
+            </h2>
+        </nav>
+    </header>
+
+    <h3>
+        Hoi4 - это прекрасная игра своего времени, которая даёт возможность поиграть за любую страну времён второй мировой войны на всём земном шаре. У большей части стран есть свои фокусы, как исторические так и альтернативные. К примеру за Германию в 36-ом можно пойти против Гитлера, а на выбор будет 3 пути:
+        <h3 style="color: #E85C4A;">Коммунизм,</h3>
+        <h3 style="color: #5B8DC9;">Демократия,</h3>
+        <h3 style="color: #B8B8B8;">Монархия (идеология нейтралитет).</h3>
+    </h3>
+
+    <h4>
+        Самая вкусная часть этой игры, это её модификации. Тут открывается очень обширное поле модов, от визуальных замен до глобальных альтернативных реальностей:
+        <ul>
+            <li style="color: #A78BFA;">The New Order</li>
+            <li style="color: #9AA5B1;">KaiserReich</li>
+            <li style="color: #7BC96F;">Russian Day</li>
+            <li style="color: #D48BE8;">The Fire Rise</li>
+        </ul>
+        Есть мультиплеер, что делает игру ещё веселее, есть конструктор дивизий, танков, самолётов, кораблей и много механик таких как шпионское агенство, снабжение, производственные концерны и т.д.
+    </h4>
+
+    <h4>
+        А минусы этой игры, моё почтение:
+    </h4>
+    <ol>
+        <li>смена политики цен, что сделало игру ещё дороже</li>
+        <li>выходы плохих и даже дорогих DLC</li>
+        <li>а также плохой и старый движок, который работает на одном ядре процессора, что не дает либо долго играть, либо играть в большие моды такие как Millenium Dawn.</li>
+    </ol>
+
+    <img src="https://i0.wp.com/i.playground.ru/i/pix/1982672/image.jpg?ssl=1" alt="Hearts of Iron 4">
+    <p></p>
+    <a href="https://synergy.ru" target="_blank">Сайт университета</a>
+
+
+
+    </script>
+
+    <!-- ========================================== -->
+<!-- ПАНЕЛЬ ПОИСКА И ФИЛЬТРОВ                    -->
+<!-- ========================================== -->
+<section class="filters-section">
+    <h2>🔍 Поиск и фильтры</h2>
+    
+    <div class="filters-grid">
+        <div class="filter-group">
+            <label for="search-input">Поиск по названию:</label>
+            <input type="text" id="search-input" placeholder="Введите название...">
+        </div>
+        
+        <div class="filter-group">
+            <label for="genre-filter">Жанр:</label>
+            <select id="genre-filter">
+                <option value="">Все жанры</option>
+                <option value="Action">Action</option>
+                <option value="SandBox">SandBox</option>
+                <option value="Strategy">Strategy</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label for="rating-filter">Мин. рейтинг:</label>
+            <input type="number" id="rating-filter" min="0" max="10" step="0.5" placeholder="0">
+        </div>
+        
+        <div class="filter-group">
+            <label for="sort-filter">Сортировка:</label>
+            <select id="sort-filter">
+                <option value="default">По умолчанию</option>
+                <option value="rating-desc">Рейтинг ↓</option>
+                <option value="rating-asc">Рейтинг ↑</option>
+                <option value="title-asc">Название А-Я</option>
+                <option value="title-desc">Название Я-А</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="filters-actions">
+        <button id="reset-filters" class="reset-btn">🔄 Сбросить фильтры</button>
+        <span id="results-count" class="results-count">Найдено: 0</span>
+    </div>
+</section>
+
+
+    <!-- ========================================== -->
+<!-- БЛОК С КАРТОЧКАМИ ИГР (данные из Firestore) -->
+<!-- ========================================== -->
+<h2>🎮 Наши игры</h2>
+
+
+<!-- Сюда JavaScript будет добавлять карточки -->
+<div class="card-container" id="games-container">
+    <p id="loading">Загрузка игр...</p>
+</div>
+
+    <script src="js/scripts.js"></script>
+
+<!-- ========================================== -->
+<!-- ФОРМА ДОБАВЛЕНИЯ ИГРЫ                       -->
+<!-- ========================================== -->
+<section class="add-game-section">
+    <h2>➕ Добавить новую игру</h2>
+    
+    <form id="add-game-form">
+        
+        <!-- Название -->
+        <div class="form-group">
+            <label for="title">Название игры:</label>
+            <input 
+                type="text" 
+                id="title" 
+                placeholder="Например: Cyberpunk 2077" 
+                required>
+        </div>
+        
+        <!-- Жанр -->
+        <div class="form-group">
+            <label for="genre">Жанр:</label>
+            <input 
+                type="text" 
+                id="genre" 
+                placeholder="Например: RPG" 
+                required>
+        </div>
+        
+        <!-- Рейтинг -->
+        <div class="form-group">
+            <label for="rating">Рейтинг (0-10):</label>
+            <input 
+                type="number" 
+                id="rating" 
+                min="0" 
+                max="10" 
+                step="0.1" 
+                placeholder="9.5" 
+                required>
+        </div>
+        
+        <!-- Ссылка на картинку -->
+        <div class="form-group">
+            <label for="imageUrl">Ссылка на картинку:</label>
+            <input 
+                type="url" 
+                id="imageUrl" 
+                placeholder="https://example.com/image.jpg">
+        </div>
+        
+        <!-- Кнопка -->
+        <button type="submit" class="submit-btn">Сохранить игру</button>
+        
+    </form>
+</section>
+<!-- ========================================== -->
+<!-- МОДАЛЬНОЕ ОКНО ДЛЯ РЕДАКТИРОВАНИЯ          -->
+<!-- ========================================== -->
+<div class="modal-overlay" id="edit-modal">
+    <div class="modal-window">
+        <h2>✏️ Редактировать игру</h2>
+        
+        <form id="edit-form">
+            <!-- Скрытое поле для ID документа -->
+            <input type="hidden" id="edit-id">
+            
+            <div class="form-group">
+                <label for="edit-title">Название игры:</label>
+                <input type="text" id="edit-title" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="edit-genre">Жанр:</label>
+                <input type="text" id="edit-genre" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="edit-rating">Рейтинг (0-10):</label>
+                <input type="number" id="edit-rating" min="0" max="10" step="0.1" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="edit-imageUrl">Ссылка на картинку:</label>
+                <input type="url" id="edit-imageUrl">
+            </div>
+            
+            <div class="modal-actions">
+                <button type="button" class="cancel-btn" id="cancel-edit">Отмена</button>
+                <button type="submit" class="save-btn">Сохранить</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ========================================== -->
+<!-- ЛИДЕРБОРД (ТАБЛИЦА РЕКОРДОВ)               -->
+<!-- ========================================== -->
+<section class="leaderboard-section">
+    <h2>🏆 Таблица рекордов</h2>
+    
+    <!-- Форма добавления рекорда -->
+    <form id="score-form" class="score-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="player-name">Имя игрока:</label>
+                <input type="text" id="player-name" placeholder="Ваше имя" required>
+            </div>
+            <div class="form-group">
+                <label for="player-score">Очки:</label>
+                <input type="number" id="player-score" placeholder="1000" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="game-title">Игра:</label>
+                <select id="game-title" required>
+                    <option value="">Выберите игру</option>
+                    <option value="Warhammer 40K: Space Marine II">Warhammer 40K: Space Marine II</option>
+                    <option value="War Thunder">War Thunder</option>
+                    <option value="Garry's Mod">Garry's Mod</option>
+                    <option value="Helldivers II">Helldivers II</option>
+                    <option value="Heart's Of Iron 4">Hear's Of Iron 4</option>
+                    <option value="Far Cry 3">Far Cry 3</option>
+                </select>
+            </div>
+            <button type="submit" class="score-btn">➕ Добавить</button>
+        </div>
+    </form>
+    
+    <!-- Фильтр по игре -->
+    <div class="leaderboard-filter">
+        <label for="leaderboard-game-filter">Фильтр по игре:</label>
+        <select id="leaderboard-game-filter">
+            <option value="">Все игры</option>
+            <option value="Warhammer 40K: Space Marine II">Warhammer 40K: Space Marine II</option>
+            <option value="War Thunder">War Thunder</option>
+            <option value="Garry's Mod">Garry's Mod</option>
+            <option value="Helldivers II">Helldivers II</option>
+            <option value="Heart's Of Iron 4">Hear's Of Iron 4</option>
+            <option value="Far Cry 3">Far Cry 3</option>
+        </select>
+    </div>
+    
+    <!-- Таблица рекордов -->
+    <div class="leaderboard-table-wrapper">
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Место</th>
+                    <th>Игрок</th>
+                    <th>Очки</th>
+                    <th>Игра</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+                <tr>
+                    <td colspan="4" style="text-align: center;">Загрузка...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+
+<!--ПИСАТЬ ДО СЮДОВА-->
+<!-- ============================================ -->
+<!-- ПОДКЛЮЧАЕМ FIREBASE                          -->
+<!-- ============================================ -->
+<script type="module">
+    // 1. Импортируем модули Firebase
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js';
+    //Импорт базы данных можно пропустить. Добавить в следующий раз
+    import { getFirestore } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js';
+    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js';
+
+    // 2. ⚠️ ВСТАВЬ СВОЙ КОНФИГ ИЗ FIREBASE!
+    const firebaseConfig = {
+        apiKey: "AIzaSyAny3NDqwPWYINOV2tnWcswfM7Lzkxy8Fs",
+        authDomain: "my-game-site-cc757.firebaseapp.com",
+        projectId: "my-game-site-cc757",
+        storageBucket: "my-game-site-cc757.firebasestorage.app",
+        messagingSenderId: "797168335293",
+        appId: "1:797168335293:web:e13c98042ebecc0bbb7ad4",
+        measurementId: "G-SVDN0SSTML"
+    };
+
+    // 3. Инициализация Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const analytics = getAnalytics(app);
+
+    // 4. ПРОВЕРКА ПОДКЛЮЧЕНИЯ (ЗАДАЧА №5)
+    console.log('✅ Firebase подключен!');
+    console.log('📊 Project ID:', firebaseConfig.projectId);
+    console.log('🔥 Firestore готов к работе!');
+
+    // Делаем db доступной глобально (для отладки)
+        // Делаем db доступной глобально (для отладки)
+        window.firebaseConfig = firebaseConfig;
+        window.db = db;
+        window.firebaseReady = true;
+</script>
+    <!--НЕЛЬЗЯ ТУТА ПИСАТЬ--> 
+</body>
+</html>
